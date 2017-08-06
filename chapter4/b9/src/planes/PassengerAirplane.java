@@ -6,7 +6,9 @@ import java.util.ArrayList;
  * Created by Dima Hudovec on 03.08.2017.
  */
 public class PassengerAirplane extends Airplane {
+    /** Airplane capacity */
     private int capacity;
+    /** Airplane tipe */
     private static Tipe tipe = Tipe.PASSENGER;
 
     public PassengerAirplane(int flightRange, String manufacturer, double fuelConsumption, int capacity) {
