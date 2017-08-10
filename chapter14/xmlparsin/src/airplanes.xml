@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<airplanes>
+    <!--erfrefref-->
+    <airplane model="TU" orgin="Russia">
+        <chars>
+            <radar>true</radar>
+            <tipe>cargo</tipe>
+            <capacity>125</capacity>
+        </chars>
+        <parameters>
+            <length>35</length>
+            <width>16</width>
+            <heigh>12</heigh>
+        </parameters>
+        <price>150</price>
+    </airplane>
+    <airplane model="Boing" orgin="USA">
+        <chars>
+            <radar>true</radar>
+            <tipe>passenger</tipe>
+            <capacity>225</capacity>
+        </chars>
+        <parameters>
+            <length>100</length>
+            <width>30</width>
+            <heigh>25</heigh>
+        </parameters>
+        <price>400</price>
+    </airplane>
+</airplanes>
