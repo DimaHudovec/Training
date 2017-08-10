@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!ELEMENT airplanes (cargoairplane)+, (passengerairplane)+>
+        <!ELEMENT cargoairplane (price, radar, parameters, carigecapacity)>
+        <!ELEMENT passengerairplane (price, radar, parameters, capacity)>
+        <!ATTLIST cargoairplane
+                model CDATA #REQUIRED
+                origin CDATA #REQUIRED
+                >
+        <!ATTLIST passengerairplane
+                model CDATA #REQUIRED
+                origin CDATA #REQUIRED
+                >
+        <!ELEMENT price (#PCDATA)>
+        <!ELEMENT radar (#PCDATA)>
+        <!ELEMENT parameters (length, width, heigh)>
+        <!ELEMENT length (#PCDATA)>
+        <!ELEMENT width (#PCDATA)>
+        <!ELEMENT heigh (#PCDATA)>
+        <!ELEMENT capacity (#PCDATA)>
+        <!ELEMENT carigecapacity (#PCDATA)>
+

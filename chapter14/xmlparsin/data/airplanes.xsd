@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="data"
+        xmlns:tns="data"
+        elementFormDefault="qualified">
+  <complexType name="Airplane">
+    <sequence>
+      <element name="price" type="double" />
+      <element name="radar" type="boolean" />
+      <element name="parameters" type="tns:Parameters" />
+    </sequence>
+    <attribute name="model" type="string" use="required" />
+    <attribute name="origin" type="string" use="required" />
+  </complexType>
+  <complexType name="Parameters">
+    <sequence>
+      <element name="length" type="positiveInteger" />
+      <element name="width" type="positiveInteger" />
+      <element name="heigh" type="positiveInteger" />
+    </sequence>
+  </complexType>
+  <complexType name="CargoAirplane">
+    <complexContent>
+      <extension base="tns:Airplane">
+        <sequence>
+          <element name="carigecapacity" type="double" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="PassengerAirplane">
+    <complexContent>
+      <extension base="tns:Airplane">
+        <sequence>
+          <element name="capacity" type="positiveInteger" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+
+  <element name="airplane" type="tns:Airplane" abstract="true"></element>
+  <element name="cargoairplane" type="tns:CargoAirplane" substitutionGroup="tns:airplane"></element>
+  <element name="passengerairplane" type="tns:PassengerAirplane" substitutionGroup="tns:airplane"></element>
+
+  <element name="airplanes">
+    <complexType>
+      <sequence>
+        <element ref="tns:airplane" minOccurs="1" maxOccurs="unbounded" />
+      </sequence>
+    </complexType>
+  </element>
+</schema>
