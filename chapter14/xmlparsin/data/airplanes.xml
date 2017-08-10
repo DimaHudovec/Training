@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <airplanes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xmlns="data"
-           xsi:schemaLocation="data airplanes.xsd">
+           xmlns="airplanes"
+           xsi:schemaLocation="airplanes airplanes.xsd">
     <cargoairplane model="AN" origin="Russia">
         <price>150</price>
         <radar>true</radar>
