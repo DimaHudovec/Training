@@ -6,7 +6,7 @@
         <price>150</price>
         <radar>true</radar>
         <parameters>
-            <length>35</length>
+            <lengt>35</lengt>
             <width>16</width>
             <heigh>12</heigh>
         </parameters>
@@ -16,7 +16,7 @@
         <price>400</price>
         <radar>true</radar>
         <parameters>
-            <length>100</length>
+            <lengt>100</lengt>
             <width>30</width>
             <heigh>25</heigh>
         </parameters>

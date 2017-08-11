@@ -1,3 +1,5 @@
+package validator;
+
 import java.io.File;
 import java.io.IOException;
 import javax.xml.XMLConstants;
@@ -7,6 +9,8 @@ import javax.xml.parsers.SAXParserFactory;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import org.xml.sax.SAXException;
+import validator.AirplaneErrorHandler;
+
 public class ValidatorSAX {
     public static void main(String[ ] args) {
         String filename = "data/airplanes.xml";

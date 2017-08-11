@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
         targetNamespace="airplanes"
         xmlns:tns="airplanes"
@@ -14,7 +13,7 @@
   </complexType>
   <complexType name="Parameters">
     <sequence>
-      <element name="length" type="positiveInteger" />
+      <element name="lengt" type="positiveInteger" />
       <element name="width" type="positiveInteger" />
       <element name="heigh" type="positiveInteger" />
     </sequence>
@@ -23,7 +22,7 @@
     <complexContent>
       <extension base="tns:Airplane">
         <sequence>
-          <element name="carigecapacity" type="double" />
+          <element name="carigecapacity" type="positiveInteger" />
         </sequence>
       </extension>
     </complexContent>

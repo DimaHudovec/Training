@@ -1,3 +1,5 @@
+package validator;
+
 import java.io.IOException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.helpers.DefaultHandler;
