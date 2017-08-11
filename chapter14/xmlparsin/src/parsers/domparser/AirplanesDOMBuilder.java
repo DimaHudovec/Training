@@ -10,6 +10,10 @@ import java.util.Set;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+
+import org.apache.log4j.FileAppender;
+import org.apache.log4j.Logger;
+import org.apache.log4j.SimpleLayout;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -21,16 +25,18 @@ import planes.Parameters;
 import planes.PassengerAirplane;
 
 public class AirplanesDOMBuilder {
+    static Logger logger = Logger.getLogger(AirplanesDOMBuilder.class);
     private Set<Airplane> airplanes;
     private DocumentBuilder docBuilder;
-    public AirplanesDOMBuilder() {
+    public AirplanesDOMBuilder() throws IOException {
+        logger.addAppender(new FileAppender(new SimpleLayout(),"logs/DOMLog"));
         this.airplanes = new HashSet<Airplane>();
 // создание DOM-анализатора
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             docBuilder = factory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
-            System.err.println("Ошибка конфигурации парсера: " + e);
+            logger.error("Parser configuration error: " + e);
         }
     }
     public Set<Airplane> getAirplanes() {
@@ -56,9 +62,9 @@ public class AirplanesDOMBuilder {
                 airplanes.add(airplane);
             }
         } catch (IOException e) {
-            System.err.println("File error or I/O error: " + e);
+            logger.error("File error or I/O error: " + e);
         } catch (SAXException e) {
-            System.err.println("Parsing failure: " + e);
+            logger.error("Parsing failure: " + e);
         }
     }
     private Airplane buildAirplane(Element airplaneElement) {

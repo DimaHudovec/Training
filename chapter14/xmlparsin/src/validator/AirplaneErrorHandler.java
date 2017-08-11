@@ -7,7 +7,7 @@ import org.apache.log4j.FileAppender;
 import org.apache.log4j.Logger;
 import org.apache.log4j.SimpleLayout;
 public class AirplaneErrorHandler extends DefaultHandler {
-    // создание регистратора ошибок для пакета by.bsu.valid
+    // создание регистратора ошибок
     private Logger logger = Logger.getLogger(AirplaneErrorHandler.class);
     public AirplaneErrorHandler(String log) throws IOException {
 // установка файла и формата вывода ошибок

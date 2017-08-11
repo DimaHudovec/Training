@@ -3,6 +3,9 @@ package parsers.staxparser;
 /**
  * Created by hudov on 11.08.2017.
  */
+import org.apache.log4j.FileAppender;
+import org.apache.log4j.Logger;
+import org.apache.log4j.SimpleLayout;
 import parsers.saxparser.AirplaneEnum;
 import planes.Airplane;
 import planes.CargoAirplane;
@@ -20,9 +23,11 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 public class AirplanesStAXBuilder {
+    static Logger logger = Logger.getLogger(AirplanesStAXBuilder.class);
     private HashSet<Airplane> airplanes = new HashSet<>();
     private XMLInputFactory inputFactory;
-    public AirplanesStAXBuilder() {
+    public AirplanesStAXBuilder() throws IOException {
+        logger.addAppender(new FileAppender(new SimpleLayout(),"logs/StAXLog"));
         inputFactory = XMLInputFactory.newInstance();
     }
     public Set<Airplane> getAirplanes() {
@@ -48,16 +53,16 @@ public class AirplanesStAXBuilder {
                 }
             }
         } catch (XMLStreamException ex) {
-            System.err.println("StAX parsing error! " + ex.getMessage());
+            logger.error("StAX parsing error! " + ex.getMessage());
         } catch (FileNotFoundException ex) {
-            System.err.println("File " + fileName + " not found! " + ex);
+            logger.error("File " + fileName + " not found! " + ex);
         } finally {
             try {
                 if (inputStream != null) {
                     inputStream.close();
                 }
             } catch (IOException e) {
-                System.err.println("Impossible close file "+fileName+" : "+e);
+                logger.error("Impossible close file "+fileName+" : "+e);
             }
         }
     }
